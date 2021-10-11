@@ -1,14 +1,8 @@
 class CurrencyConverter extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      currency: this.props.currencies[0].name,
-      value: 0,
-    };
+  state = {
+    currency: this.props.currencies[0].name,
+    value: 0,
   }
-  
- 
 
   onChange = ({ target: { value, dataset: { currency } } }) => {
     this.setState({
@@ -17,14 +11,8 @@ class CurrencyConverter extends React.Component {
     });
   }
 
- 
-
-
-
   render() {
     const { currency, value } = this.state;
-
-    console.log(currency)
 
     return (
       <div>
@@ -33,7 +21,7 @@ class CurrencyConverter extends React.Component {
             {n.name}:
             <input
               data-currency={n.name}
-              value={currency === n.name ? value : (value  * n.rate).toFixed(2)}
+              value={currency === n.name ? value : (value * n.rate).toFixed(2)}
               onChange={this.onChange}
             />
           </div>
@@ -48,9 +36,10 @@ ReactDOM.render(
   <CurrencyConverter
     currencies={[
       { name: 'RUB', rate: 1 },
-      { name: 'USD', rate: 71.81 },
-      { name: 'EUR', rate: 83.09 },
+      { name: 'USD', rate: 0.013433637829124127 },
+      { name: 'EUR', rate: 0.011065619121389841 },
     ]}
   />,
   document.getElementById('app')
 );
+
